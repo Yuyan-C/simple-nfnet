@@ -116,7 +116,7 @@ for epoch in range(args.num_epochs):
         torch.save(model.state_dict(), 'nfnet.ckpt')
         best_acc = validation_accuracy
     scheduler.step()
-    records.append([training_time, training_accuracy, validation_accuracy])
+    records.append([training_accuracy, validation_accuracy, training_time])
 
 records = np.array(records)
 np.save(f'{args.variant}_records.npy', records)
